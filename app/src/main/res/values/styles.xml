@@ -7,4 +7,48 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!-- Button -->
+    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_x_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="backgroundTint">@color/colorButton</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="hintEnabled">false</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:textColorHint">@color/colorText</item>
+        <item name="hintTextColor">@color/colorText</item>
+        <item name="android:minHeight">46dp</item>
+
+    </style>
+
+
+    <!-- name EditText -->
+    <style name="TextInputEditText" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textColorHint">@color/black_text</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+
+    </style>
+
+    <style name="TitleStyle" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:textSize">@dimen/text_size_very_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextStyle" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

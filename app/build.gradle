@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion DefaultConfig.compileSdk
+
+    defaultConfig {
+        applicationId App.petproject
+        minSdkVersion DefaultConfig.minSdk
+        targetSdkVersion DefaultConfig.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures{
+        dataBinding = true
+        // for view binding :
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation Deps.kotlin
+    implementation Deps.appcompat
+    implementation Deps.design
+    implementation Deps.constraint
+
+    //core
+    implementation Deps.core
+    implementation Deps.core_utils
+
+    //legacy
+    implementation Deps.legacy
+
+    // Navigation
+    implementation Deps.navigation
+    implementation  Deps.navigationFragment
+
+    //lifecycle
+    implementation Deps.lifecycleExtensions
+    implementation Deps.lifecycleLivedata
+    implementation Deps.lifecycleViewModel
+    implementation Deps.lifecycleTesting
+
+    // dependency injection hilt
+    implementation Deps.hiltAndroid
+    kapt Deps.hiltAndroidCompiler
+    implementation Deps.hiltViewModel
+    kapt Deps.hiltCompiler
+    implementation 'androidx.hilt:hilt-work:1.0.0-alpha02'
+
+    //gson
+    implementation Deps.gson
+
+    //Glide
+    implementation Deps.glide
+
+    //timber
+    api Deps.timber
+
+
+}

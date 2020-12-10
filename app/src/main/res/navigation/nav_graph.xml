@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.android.com.MainFragment"
+        android:name="com.android.smartyhome.ui.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.smartyhome.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

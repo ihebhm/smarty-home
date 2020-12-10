@@ -1,14 +1,13 @@
-package com.android.com
+package com.android.smartyhome.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.android.smartyhome.R
+import com.android.smartyhome.ui.MainNavigationFragment
 
-
-class MainFragment : Fragment() {
+class HomeFragment : MainNavigationFragment() {
 
 
     override fun onCreateView(
@@ -16,8 +15,8 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-  
+
 }

@@ -1,11 +1,15 @@
-package com.android.smartyhome
+package com.android.smartyhome.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.android.smartyhome.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+
+
 }

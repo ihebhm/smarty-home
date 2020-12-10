@@ -6,4 +6,7 @@
     <string name="welcome_home">Welcome Home</string>
     <string name="name_hint">Your Name</string>
     <string name="continue_btn">CONTINUE</string>
+    <string name="welcome">Welcome</string>
+    <string name="devices">Devices</string>
+    <string name="device">Device</string>
 </resources>

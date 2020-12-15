@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.android.smartyhome.Event
 import com.android.smartyhome.EventObserver
 import com.android.smartyhome.R
 import com.android.smartyhome.databinding.FragmentMainBinding
+import com.android.smartyhome.model.FadingSnackBarEvent
 import com.android.smartyhome.ui.MainNavigationFragment
+import com.android.smartyhome.ui.activities.MainActivity
 import com.android.smartyhome.utils.getNavOptions
 import com.android.smartyhome.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -21,9 +24,15 @@ class MainFragment : MainNavigationFragment() {
     private lateinit var binding: FragmentMainBinding
 
     private val viewModel: MainViewModel by viewModels()
+    private lateinit var mainActivity: MainActivity
 
     companion object {
         const val ARG_NAME = "arg_name"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mainActivity = activity as MainActivity
     }
 
     override fun onCreateView(
@@ -34,17 +43,37 @@ class MainFragment : MainNavigationFragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.navigate.observe(viewLifecycleOwner, EventObserver {
-            val action = Bundle()
-            action.putString(ARG_NAME, name_et.text.toString())
-            findNavController().navigate(
-                R.id.homeFragment,
-                action,
-                getNavOptions()
-            )
-        })
+        onObserverEvents()
 
         return binding.root
+    }
+
+    private fun onObserverEvents() {
+        viewModel.navigate.observe(viewLifecycleOwner, EventObserver {
+            if (viewModel.verifyName(name_et.text.toString())) {
+                goToHome()
+            }else{
+                mainActivity.viewModel._eventFadingSnackBar.postValue(
+                    Event(
+                        FadingSnackBarEvent(
+                            true,
+                            getString(R.string.required_name),
+                            false
+                        )
+                    )
+                )
+            }
+        })
+    }
+
+    private fun goToHome() {
+        val action = Bundle()
+        action.putString(ARG_NAME, name_et.text.toString())
+        findNavController().navigate(
+            R.id.homeFragment,
+            action,
+            getNavOptions()
+        )
     }
 
 

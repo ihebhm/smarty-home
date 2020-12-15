@@ -9,4 +9,9 @@
     <string name="welcome">Welcome</string>
     <string name="devices">Devices</string>
     <string name="device">Device</string>
+    <string name="required_name">name required</string>
+    <string name="ok">OK</string>
+
+
+
 </resources>

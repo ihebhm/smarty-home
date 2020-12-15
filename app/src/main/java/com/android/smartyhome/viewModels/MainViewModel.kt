@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.smartyhome.Event
+import com.android.smartyhome.model.FadingSnackBarEvent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -19,6 +20,13 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             _navigate.postValue(Event(Destination.HOME))
         }
+    }
+
+    fun verifyName(name: String): Boolean {
+        if (name.isEmpty()) {
+            return false
+        }
+        return true
     }
 
     enum class Destination {

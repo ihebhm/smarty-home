@@ -21,4 +21,9 @@
 
     <dimen name="button_radius">6sp</dimen>
 
+    <!-- Snackbars -->
+    <dimen name="snackbar_margin_end_fab">0dp</dimen>
+    <dimen name="snackbar_margin_bottom_fab">72dp</dimen>
+    <dimen name="snackbar_margin_bottom_bab">84dp</dimen>
+
 </resources>

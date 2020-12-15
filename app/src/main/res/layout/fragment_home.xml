@@ -20,9 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
         <TextView
             style="@style/TextStyle"
@@ -30,12 +28,14 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.date}"
             android:textSize="16sp"
+            android:layout_marginStart="10dp"
             tools:text="july 17,2020" />
 
         <TextView
             style="@style/TitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text='@{@string/welcome+", "+ viewModel.name+"!"}'
             tools:text="Welcome, iheb!" />
 

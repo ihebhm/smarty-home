@@ -23,6 +23,8 @@
         android:layout_height="170dp"
         app:layout_constraintWidth_percent="0.85"
         app:strokeColor="@color/color_stroke"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:strokeWidth="0.1dp">
 

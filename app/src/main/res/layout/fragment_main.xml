@@ -13,8 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/ic_main"
@@ -51,11 +50,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_il"
             style="@style/TextInputLayoutStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginStart="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_tv">
@@ -67,10 +66,9 @@
                 android:layout_gravity="center_vertical"
                 android:hint="@string/name_hint"
                 android:imeOptions="actionDone"
-                android:maxLength="36"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
+                android:maxLength="20"
                 android:singleLine="true"
+                android:text=""
                 android:textAppearance="@style/TextInputEditText" />
 
         </com.google.android.material.textfield.TextInputLayout>

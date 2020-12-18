@@ -18,7 +18,6 @@ import com.android.smartyhome.viewModels.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@ExperimentalCoroutinesApi
 class MainFragment : MainNavigationFragment() {
 
     private lateinit var binding: FragmentMainBinding
@@ -48,12 +47,15 @@ class MainFragment : MainNavigationFragment() {
         return binding.root
     }
 
+    /**
+     * observe [MainFragment] events
+     */
     private fun onObserverEvents() {
         viewModel.navigate.observe(viewLifecycleOwner, EventObserver {
             if (viewModel.verifyName(name_et.text.toString())) {
                 goToHome()
             }else{
-                mainActivity.viewModel._eventFadingSnackBar.postValue(
+                mainActivity.viewModel.eventFadingSnackBar.postValue(
                     Event(
                         FadingSnackBarEvent(
                             true,
@@ -66,6 +68,9 @@ class MainFragment : MainNavigationFragment() {
         })
     }
 
+    /**
+     * open [HomeFragment] fragment
+     */
     private fun goToHome() {
         val action = Bundle()
         action.putString(ARG_NAME, name_et.text.toString())

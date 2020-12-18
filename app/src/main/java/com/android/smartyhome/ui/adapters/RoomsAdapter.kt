@@ -10,7 +10,7 @@ import com.android.smartyhome.utils.executeAfter
 import com.android.smartyhome.viewModels.HomeViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-class RoomsAdapter @ExperimentalCoroutinesApi constructor(
+class RoomsAdapter constructor(
     private val lifecycleOwner: LifecycleOwner,
     private val viewModel: HomeViewModel,
     private val roomList: List<Room>

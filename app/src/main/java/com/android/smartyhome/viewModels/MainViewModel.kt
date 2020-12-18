@@ -9,7 +9,6 @@ import com.android.smartyhome.model.FadingSnackBarEvent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
-@ExperimentalCoroutinesApi
 class MainViewModel : ViewModel() {
 
     private val _navigate = MutableLiveData<Event<Destination>>()
@@ -22,6 +21,9 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    /**
+     * verify name input
+     */
     fun verifyName(name: String): Boolean {
         if (name.isEmpty()) {
             return false
@@ -32,4 +34,5 @@ class MainViewModel : ViewModel() {
     enum class Destination {
         HOME
     }
+
 }

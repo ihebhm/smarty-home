@@ -9,10 +9,10 @@ import java.util.*
 fun getNavOptions(): NavOptions {
 
     return NavOptions.Builder()
-        .setEnterAnim(R.animator.slide_in_right)
-        .setExitAnim(R.animator.slide_out_left)
-        .setPopEnterAnim(R.animator.slide_in_left)
-        .setPopExitAnim(R.animator.slide_out_right)
+        .setEnterAnim(R.anim.slide_in_right)
+        .setExitAnim(R.anim.slide_out_left)
+        .setPopEnterAnim(R.anim.slide_in_left)
+        .setPopExitAnim(R.anim.slide_out_right)
         .build()
 }
 

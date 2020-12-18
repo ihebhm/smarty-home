@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
@@ -41,10 +40,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation Deps.legacy
+    testImplementation Deps.kotlin
+    androidTestImplementation Deps.junitTest
+    androidTestImplementation Deps.espresso
 
     implementation Deps.kotlin
     implementation Deps.appcompat
@@ -67,16 +66,6 @@ dependencies {
     implementation Deps.lifecycleLivedata
     implementation Deps.lifecycleViewModel
     implementation Deps.lifecycleTesting
-
-    // dependency injection hilt
-    implementation Deps.hiltAndroid
-    kapt Deps.hiltAndroidCompiler
-    implementation Deps.hiltViewModel
-    kapt Deps.hiltCompiler
-    implementation 'androidx.hilt:hilt-work:1.0.0-alpha02'
-
-    //gson
-    implementation Deps.gson
 
     //Glide
     implementation Deps.glide

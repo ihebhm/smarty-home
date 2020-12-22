@@ -6,9 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.smartyhome.EventObserver
 import com.android.smartyhome.R
+import com.android.smartyhome.dataManager.DataManager
 import com.android.smartyhome.databinding.ActivityMainBinding
 import com.android.smartyhome.viewModels.MainActViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Singleton
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var mBinding: ActivityMainBinding

@@ -33,6 +33,8 @@ object Versions {
     const val timber = "4.7.1"
     const val junitTest = "1.1.2"
     const val espresso = "3.3.0"
+    const val hilt = "2.28-alpha"
+    const val hiltViewModel = "1.0.0-alpha01"
 }
 
 object Deps {
@@ -75,4 +77,10 @@ object Deps {
 
     val junitTest = "androidx.test.ext:junit:${Versions.junitTest}"
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+
+    // hilt
+    val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
+    val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
+    val hiltCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
 }

@@ -12,6 +12,9 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph_auth.xml"
+            app:popUpToInclusive="true"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment

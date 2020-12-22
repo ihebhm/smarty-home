@@ -1,7 +1,6 @@
 package com.android.smartyhome.viewModels
 
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class HomeViewModel : ViewModel() {
 

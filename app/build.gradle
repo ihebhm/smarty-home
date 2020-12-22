@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion DefaultConfig.compileSdk
@@ -72,6 +73,13 @@ dependencies {
 
     //timber
     api Deps.timber
+
+    // dependency injection hilt
+    implementation Deps.hiltAndroid
+    kapt Deps.hiltAndroidCompiler
+    implementation Deps.hiltViewModel
+    kapt Deps.hiltCompiler
+    implementation 'androidx.hilt:hilt-work:1.0.0-alpha02'
 
 
 }

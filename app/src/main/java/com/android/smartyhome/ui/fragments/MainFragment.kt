@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.android.smartyhome.Event
 import com.android.smartyhome.EventObserver
@@ -15,9 +16,10 @@ import com.android.smartyhome.ui.MainNavigationFragment
 import com.android.smartyhome.ui.activities.MainActivity
 import com.android.smartyhome.utils.getNavOptions
 import com.android.smartyhome.viewModels.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@AndroidEntryPoint
 class MainFragment : MainNavigationFragment() {
 
     private lateinit var binding: FragmentMainBinding
@@ -32,6 +34,9 @@ class MainFragment : MainNavigationFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainActivity = activity as MainActivity
+        if (!viewModel.dataManager.getUserName().isNullOrEmpty()) {
+            goToHome(viewModel.dataManager.getUserName()!!)
+        }
     }
 
     override fun onCreateView(
@@ -53,8 +58,9 @@ class MainFragment : MainNavigationFragment() {
     private fun onObserverEvents() {
         viewModel.navigate.observe(viewLifecycleOwner, EventObserver {
             if (viewModel.verifyName(name_et.text.toString())) {
-                goToHome()
-            }else{
+                viewModel.dataManager.setUserName(name_et.text.toString())
+                goToHome(name_et.text.toString())
+            } else {
                 mainActivity.viewModel.eventFadingSnackBar.postValue(
                     Event(
                         FadingSnackBarEvent(
@@ -71,14 +77,19 @@ class MainFragment : MainNavigationFragment() {
     /**
      * open [HomeFragment] fragment
      */
-    private fun goToHome() {
+    private fun goToHome(userName: String) {
         val action = Bundle()
-        action.putString(ARG_NAME, name_et.text.toString())
+        action.putString(ARG_NAME, userName)
+
+        findNavController().popBackStack(R.id.mainFragment, true)
+
         findNavController().navigate(
             R.id.homeFragment,
             action,
             getNavOptions()
         )
+
+
     }
 
 

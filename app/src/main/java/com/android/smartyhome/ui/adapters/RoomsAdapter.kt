@@ -8,7 +8,6 @@ import com.android.smartyhome.databinding.ItemRoomBinding
 import com.android.smartyhome.model.Room
 import com.android.smartyhome.utils.executeAfter
 import com.android.smartyhome.viewModels.HomeViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class RoomsAdapter constructor(
     private val lifecycleOwner: LifecycleOwner,

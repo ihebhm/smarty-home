@@ -45,6 +45,11 @@ dependencies {
     testImplementation Deps.kotlin
     androidTestImplementation Deps.junitTest
     androidTestImplementation Deps.espresso
+    testImplementation Deps.mockitoInline
+    testImplementation(Deps.mockitoKotlin) {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
 
     implementation Deps.kotlin
     implementation Deps.appcompat
@@ -79,7 +84,9 @@ dependencies {
     kapt Deps.hiltAndroidCompiler
     implementation Deps.hiltViewModel
     kapt Deps.hiltCompiler
-    implementation 'androidx.hilt:hilt-work:1.0.0-alpha02'
+    implementation Deps.hiltWork
+
+
 
 
 }

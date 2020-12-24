@@ -1,7 +1,6 @@
 package com.android.smartyhome.dataManager
 
 
-import android.content.Context
 import com.android.smartyhome.local.PreferencesHelper
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -9,7 +8,6 @@ import javax.inject.Singleton
 @Singleton
 class AppDataManager @Inject
 constructor(
-    private val mContext: Context,
     private val mPreferencesHelper: PreferencesHelper
 ) : DataManager {
 

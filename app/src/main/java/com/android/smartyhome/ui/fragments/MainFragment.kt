@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.android.smartyhome.Event
 import com.android.smartyhome.EventObserver
@@ -75,7 +74,7 @@ class MainFragment : MainNavigationFragment() {
     }
 
     /**
-     * open [HomeFragment] fragment
+     * open [HomeFragment] and clear backStack
      */
     private fun goToHome(userName: String) {
         val action = Bundle()
@@ -88,8 +87,6 @@ class MainFragment : MainNavigationFragment() {
             action,
             getNavOptions()
         )
-
-
     }
 
 

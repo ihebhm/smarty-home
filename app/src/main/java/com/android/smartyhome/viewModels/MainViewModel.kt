@@ -26,8 +26,8 @@ class MainViewModel @ViewModelInject constructor(
     /**
      * verify name input
      */
-    fun verifyName(name: String): Boolean {
-        if (name.isEmpty()) {
+    fun verifyName(name: String?): Boolean {
+        if (name.isNullOrEmpty()) {
             return false
         }
         return true
